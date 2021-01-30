@@ -1,0 +1,60 @@
+<?php
+
+return [
+	'name'        => 'Post',
+	'title'       => 'widget-post-title',
+	'description' => 'widget-post-desc',
+	'version'     => '1.0.0',
+	'author'      => 'Mai Vu',
+	'authorEmail' => 'mvanvu@gmail.com',
+	'authorUrl'   => 'https://github.com/mvanvu',
+	'updateUrl'   => null,
+	'params'      => [
+		[
+			'name'     => 'categoryIds',
+			'type'     => 'CmsModalUcmItem',
+			'context'  => 'post-category',
+			'multiple' => true,
+			'filters'  => ['uint:array'],
+		],
+		[
+			'name'    => 'listLimit',
+			'type'    => 'Number',
+			'label'   => 'limit-posts-number',
+			'class'   => 'uk-input',
+			'filters' => ['uint'],
+			'min'     => 1,
+			'max'     => 50,
+			'value'   => 15,
+		],
+		[
+			'name'    => 'sortBy',
+			'type'    => 'Select',
+			'label'   => 'sort-by',
+			'value'   => 'latest',
+			'class'   => 'uk-select',
+			'options' => [
+				'latest'    => 'order-latest',
+				'random'    => 'order-random',
+				'titleAsc'  => 'order-title-asc',
+				'titleDesc' => 'order-title-desc',
+				'ordering'  => 'ordering',
+			],
+			'rules'   => ['Options'],
+		],
+		[
+			'name'    => 'displayLayout',
+			'type'    => 'Select',
+			'label'   => 'display-layout',
+			'value'   => 'FlashNews',
+			'class'   => 'uk-select',
+			'options' => [
+				'FlashNews'  => 'slider-thumb-nav',
+				'SliderNews' => 'sub-slider',
+				'BlogList'   => 'blog-list',
+				'BlogStack'  => 'blog-stack',
+			],
+			'rules'   => ['Options'],
+		],
+	],
+];
