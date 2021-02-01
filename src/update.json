@@ -11,7 +11,6 @@
     "en-GB": "Posts and categories management system",
     "vi-VN": "Trình quản lý các bài đăng và danh mục"
   },
-  "sources": {
-    "1.0": "https://github.com/mvanvu/hummingbird-cms-post/archive/1.0.zip"
-  }
+  "version": "1.0",
+  "source": "https://github.com/mvanvu/hummingbird-cms-post/archive/1.0.zip"
 }
