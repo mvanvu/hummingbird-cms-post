@@ -5,7 +5,7 @@ use MaiVu\Hummingbird\Plugin\Cms\Post\Post;
 return [
 	'name'        => 'Post',
 	'group'       => 'Cms',
-	'version'     => '1.0.0',
+	'version'     => '1.0',
 	'title'       => 'post-plugin-title',
 	'description' => 'post-plugin-desc',
 	'author'      => 'Mai Vu',
