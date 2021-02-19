@@ -1,13 +1,12 @@
 <?php
 
-namespace MaiVu\Hummingbird\Widget\Post;
+namespace App\Widget;
 
-use MaiVu\Hummingbird\Lib\Helper\Event;
-use MaiVu\Hummingbird\Lib\Helper\Service;
-use MaiVu\Hummingbird\Lib\Helper\UcmItem;
-use MaiVu\Hummingbird\Lib\Mvc\Model\Post as PostModel;
-use MaiVu\Hummingbird\Lib\Mvc\Model\PostCategory;
-use MaiVu\Hummingbird\Lib\Widget;
+use App\Helper\Event;
+use App\Helper\Service;
+use App\Helper\UcmItem;
+use App\Mvc\Model\Post as PostModel;
+use App\Mvc\Model\PostCategory;
 use MaiVu\Php\Registry;
 use Phalcon\Paginator\Adapter\QueryBuilder as Paginator;
 

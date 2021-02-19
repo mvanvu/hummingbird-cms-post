@@ -1,6 +1,6 @@
 <?php
 
-namespace MaiVu\Hummingbird\Lib\Mvc\Model;
+namespace App\Mvc\Model;
 
 class Post extends UcmItem
 {

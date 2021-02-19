@@ -1,15 +1,15 @@
 <?php
 
-namespace MaiVu\Hummingbird\Plugin\Cms\Post;
+namespace App\Plugin\Cms;
 
-use MaiVu\Hummingbird\Lib\Helper\IconSvg;
-use MaiVu\Hummingbird\Lib\Helper\Menu;
-use MaiVu\Hummingbird\Lib\Helper\Text;
-use MaiVu\Hummingbird\Lib\Helper\Uri;
-use MaiVu\Hummingbird\Lib\Helper\User;
-use MaiVu\Hummingbird\Lib\Mvc\Model\Post as PostItem;
-use MaiVu\Hummingbird\Lib\Mvc\Model\PostCategory;
-use MaiVu\Hummingbird\Lib\Plugin;
+use App\Helper\IconSvg;
+use App\Helper\Menu;
+use App\Helper\Text;
+use App\Helper\Uri;
+use App\Helper\User;
+use App\Mvc\Model\Post as PostItem;
+use App\Mvc\Model\PostCategory;
+use App\Plugin\Plugin;
 
 class Post extends Plugin
 {
@@ -37,7 +37,7 @@ class Post extends Plugin
 		return null;
 	}
 
-	public function registerSystemMenus($source)
+	public function onRegisterAdminMenus(&$menus)
 	{
 		$user = User::getActive();
 
@@ -78,7 +78,12 @@ class Post extends Plugin
 				];
 			}
 
-			$source->systemMenus[IconSvg::render('pencil') . ' ' . Text::_('posts')] = $postMenus;
+			$menus = array_merge([
+				'post' => [
+					'title' => IconSvg::render('pencil') . ' ' . Text::_('posts'),
+					'items' => $postMenus,
+				],
+			], $menus);
 		}
 	}
 }
