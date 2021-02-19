@@ -9,6 +9,7 @@ use App\Helper\Uri;
 use App\Helper\User;
 use App\Mvc\Model\Post as PostItem;
 use App\Mvc\Model\PostCategory;
+use App\Mvc\Model\UcmItem;
 use App\Plugin\Plugin;
 
 class Post extends Plugin
@@ -85,5 +86,10 @@ class Post extends Plugin
 				],
 			], $menus);
 		}
+	}
+
+	public function uninstall()
+	{
+		UcmItem::find('context = \'post\' OR context = \'post-category\'')->delete();
 	}
 }
