@@ -1,6 +1,6 @@
 <?php
 
-use MaiVu\Hummingbird\Plugin\Cms\Post\Post;
+use App\Plugin\Cms\Post;
 
 return [
 	'name'        => 'Post',
