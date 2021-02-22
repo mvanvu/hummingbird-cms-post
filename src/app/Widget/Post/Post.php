@@ -7,6 +7,7 @@ use App\Helper\Service;
 use App\Helper\UcmItem;
 use App\Mvc\Model\Post as PostModel;
 use App\Mvc\Model\PostCategory;
+use App\Plugin\Plugin;
 use MaiVu\Php\Registry;
 use Phalcon\Paginator\Adapter\QueryBuilder as Paginator;
 
@@ -60,8 +61,9 @@ class Post extends Widget
 			// Init renderer
 			$renderer = $this->getRenderer();
 			$partial  = 'Content/' . $this->getPartialId();
+			$layout   = $this->widget->get('params.displayLayout', 'FlashNews');
 
-			if ('BlogList' === $this->widget->get('params.displayLayout', 'FlashNews'))
+			if ('BlogList' === $layout)
 			{
 				$paginator = new Paginator(
 					[
@@ -90,6 +92,11 @@ class Post extends Widget
 			}
 			else
 			{
+				/*if ('FlashNews' === $layout)
+				{
+					Plugin::addPublicAssets('js/flash-news.js', 'Cms', 'Post');
+				}*/
+
 				$posts = $queryBuilder->limit($postsNum, 0)->getQuery()->execute();
 
 				if ($posts->count())

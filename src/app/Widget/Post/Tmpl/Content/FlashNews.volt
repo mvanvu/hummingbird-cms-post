@@ -1,20 +1,3 @@
-{% set inlineJs = '
-var
-    fnSlider = $(".flash-news [uk-slider]"),
-    fnThumb = $(".flash-news .slide-thumb");
-    fnSlider.on("itemshow", function (e) {
-        e.preventDefault();
-        fnThumb.removeClass("active uk-box-shadow-large");
-        fnThumb.eq($(e.target).index()).addClass("active uk-box-shadow-large");
-    });
-
-    fnThumb.find(".uk-cover-container").on("click", function (e) {
-       e.preventDefault();
-       UIkit.slider(fnSlider[0]).show($(this).parents(".slide-thumb:eq(0)").index());
-    });
-' %}
-
-{{ helper('Assets::inlineJs', inlineJs | trim) | void }}
 {% set loadedPosts = [] %}
 <div class="flash-news">
     <div class="uk-grid-match uk-child-width-1-2@s" uk-grid>
