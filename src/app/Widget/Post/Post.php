@@ -91,11 +91,6 @@ class Post extends Widget
 			}
 			else
 			{
-				/*if ('FlashNews' === $layout)
-				{
-					Plugin::addPublicAssets('js/flash-news.js', 'Cms', 'Post');
-				}*/
-
 				$posts = $queryBuilder->limit($postsNum, 0)->getQuery()->execute();
 
 				if ($posts->count())
