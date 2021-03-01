@@ -7,7 +7,6 @@ use App\Helper\Service;
 use App\Helper\UcmItem;
 use App\Mvc\Model\Post as PostModel;
 use App\Mvc\Model\PostCategory;
-use App\Plugin\Plugin;
 use MaiVu\Php\Registry;
 use Phalcon\Paginator\Adapter\QueryBuilder as Paginator;
 
@@ -18,7 +17,7 @@ class Post extends Widget
 		$cid      = $this->widget->get('params.categoryIds', [], 'unique');
 		$postsNum = $this->widget->get('params.listLimit', 0, 'uint');
 		$sortBy   = $this->widget->get('params.sortBy', 'latest');
-		$plugin   = Event::getPlugin('Cms', 'Post');
+		$plugin   = Event::getHandlerByGroupName('Cms', 'Post')->getConfig();
 
 		if ($postsNum < 1)
 		{
