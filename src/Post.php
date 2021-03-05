@@ -2,6 +2,7 @@
 
 namespace App\Plugin\Cms;
 
+use App\Helper\AdminMenu;
 use App\Helper\IconSvg;
 use App\Helper\Menu;
 use App\Helper\Text;
@@ -38,7 +39,7 @@ class Post extends Plugin
 		return null;
 	}
 
-	public function onRegisterAdminMenus(&$menus)
+	public function onRegisterAdminMenus(AdminMenu $adminMenu)
 	{
 		$user = User::getActive();
 
@@ -79,12 +80,14 @@ class Post extends Plugin
 				];
 			}
 
-			$menus = array_merge([
-				'post' => [
+			$adminMenu->addMenu(
+				'post',
+				[
 					'title' => IconSvg::render('pencil') . ' ' . Text::_('posts'),
 					'items' => $postMenus,
 				],
-			], $menus);
+				'media'
+			);
 		}
 	}
 
